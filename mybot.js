@@ -1,4 +1,4 @@
-const { Wechaty, Room } = require('wechaty')
+const { Wechaty, Room, MediaMessage } = require('wechaty')
 
 Wechaty.instance()
     .on('scan', (url, code) => {
@@ -40,6 +40,13 @@ Wechaty.instance()
 
     if (/hello/.test(content)) {
         m.say("hello how are you")
+    }
+
+
+    if (/付款码/.test(content)) {
+        const file = "./QR.jpg"
+        m.say(new MediaMessage(file))
+        
     }
 
     if (/out/.test(content)) {
